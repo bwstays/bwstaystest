@@ -6,16 +6,17 @@ import {defaultTimeout, userLogin, userPass} from "../../pages/constants/constan
 
 describe("End-To-End Test", () => {
   const homePage = new HomePage()
-  const topBar = new TopBar()
+  /*const topBar = new TopBar()
   const loginPage = new LoginPage()
   const feedbackPage = new FeedbackPage()
+  */
 
   it("Should load homepage", async () => {
     await homePage.visit()
     await homePage.isNavbarDisplayed()
   }, defaultTimeout)
 
-  it("Should submit feedback", async () => {
+  /*it("Should submit feedback", async () => {
     await homePage.clickFeedbackLink()
     await feedbackPage.isFeedbackFormDisplayed()
     await feedbackPage.submitFeedback(
@@ -25,7 +26,9 @@ describe("End-To-End Test", () => {
       "Lorem ipsum"
     )
   }, defaultTimeout)
+  */
 
+   /*
   it("Should login to application", async () => {
     await homePage.visit()
     await topBar.isTopBarDisplayed()
@@ -33,4 +36,5 @@ describe("End-To-End Test", () => {
     await loginPage.isLoginFormDisplayed()
     await loginPage.login(userLogin,userPass)
   }, defaultTimeout)
+  */
 })

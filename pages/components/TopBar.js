@@ -1,10 +1,9 @@
 export default class TopBar {
 
   async isTopBarDisplayed() {
-    await page.waitForSelector(".brand")
-    await page.waitForSelector("#signin_button")
-    await page.waitForSelector("#searchTerm")
-  }
+    await page.waitForSelector(".about-section")
+    await page.waitForSelector("#aboutSection")
+   }
 
   async clickSignInButton(){
     await page.click("#signin_button")

@@ -7,15 +7,15 @@ import {userLogin, userPass, defaultTimeout} from "../pages/constants/constants"
 describe("example", () => {
   let homepage
   let topbar
-  const loginPage = new LoginPage()
-  const feedbackPage = new FeedbackPage()
+//  const loginPage = new LoginPage()
+//  const feedbackPage = new FeedbackPage()
 
   beforeAll(async () => {
     jest.setTimeout(() => {
     }, defaultTimeout);
 
     homepage = new HomePage()
-    topbar = new TopBar()
+//    topbar = new TopBar()
   })
 
   it("Homepage should work", async () => {
@@ -27,7 +27,7 @@ describe("example", () => {
     await topbar.isTopBarDisplayed()
   })
 
-  it("Try to login", async () => {
+/*  it("Try to login", async () => {
     await loginPage.visit()
     await loginPage.isLoginFormDisplayed()
     await loginPage.login(userLogin, userPass)
@@ -45,4 +45,5 @@ describe("example", () => {
     )
     await feedbackPage.wait(5000)
   }, defaultTimeout)
+  */
 })

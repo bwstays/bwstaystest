@@ -32,3 +32,6 @@ Start tests in watch mode:
 Running tests in `headless` mode:
 
 Set `headless: true` in [`jest-puppeteer.config.js`](./jest-puppeteer.config.js) file.
+
+Refer 
+https://github.com/dzmitry-duboyski/Automation-Framework-using-Jest-and-Puppeteer?tab=readme-ov-file
