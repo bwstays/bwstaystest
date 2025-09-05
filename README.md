@@ -10,6 +10,8 @@ Start checks:
 `cd  puppeteer-project`
 `npm init`
 `npm install puppeteer`
+`npm install --save-dev jest`
+
 
 ## Run
 Start tests:
