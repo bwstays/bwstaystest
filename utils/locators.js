@@ -4,7 +4,7 @@ module.exports = {
     homePageImage: "//*[@id='mainNav']/div/div[1]/a/img",
     headerLogo: "#header_logo",
     contact: "#signup",
-    discover: "#projects",
+    discover: "#discovered",
     title: "My Store",
     addToCartButton: "#add_to_cart > button:not([disabled])",
     elementText: "Add to cart",
