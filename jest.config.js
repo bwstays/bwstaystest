@@ -39,9 +39,9 @@ module.exports = {
 	// Force coverage collection from ignored files using an array of glob patterns
 	// forceCoverageMatch: [],
 	// A path to a module which exports an async function that is triggered once before all test suites
-	globalSetup: './setup.js',
-    globalTeardown: './teardown.js',
-    testEnvironment: './puppeteer_environment.js',
+	// globalSetup: './setup.js',
+    // globalTeardown: './teardown.js',
+    // testEnvironment: './puppeteer_environment.js',
 	// globalSetup: undefined,
 	// A path to a module which exports an async function that is triggered once after all test suites
 	// globalTeardown: undefined,
