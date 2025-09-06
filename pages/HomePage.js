@@ -1,7 +1,7 @@
 import BasePage from "./BasePage"
 import { baseUrl, timeout } from "../config";
 
-import {  contact} from '../utils/locators';
+import {  discover, contact} from '../utils/locators';
 
 
  class HomePage extends BasePage{
@@ -36,6 +36,10 @@ import {  contact} from '../utils/locators';
 
 	}
 
+	async clickDiscover() {
+		 return await this.waitAndClick(discover);
+
+	}
 
 
 
