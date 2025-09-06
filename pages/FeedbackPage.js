@@ -1,9 +1,9 @@
 import BasePage from "./BasePage";
-import {baseURL} from "./constants/constants";
+import { baseUrl, timeout } from "../config";
 
 export default class FeedbackPage extends BasePage {
   async visit() {
-    page.goto(`${baseURL}feedback.html`)
+    page.goto(`${baseUrl}feedback.html`)
   }
 
   async isFeedbackFormDisplayed() {
@@ -20,7 +20,7 @@ export default class FeedbackPage extends BasePage {
    * @param {string} email user's email.
    * @param {string} subject email subject.
    * @param {string} comment user comment.
-   * 
+   *
    * @example
    * ```js
    * await feedbackPage.submitFeedback(

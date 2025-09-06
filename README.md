@@ -1,43 +1,76 @@
-# bwstaystest-Automation-Framework-using-Jest-and-Puppeteer
+# Puppeteer with Jest & Docker - Page Object Model - Automation
 
-### Description:
-" Bwtest Automation Framework using Jest and Puppeteer"  
-" Install node js"  
-Start checks:
-`npm`
-`node -v`
-`mkdir puppeteer-project`
-`cd  puppeteer-project`
-`npm init`
-`npm install puppeteer`
-`npm install --save-dev jest`
+Design Page Objects and run Tests
 
+## Run application
+ 
+Clone the repository
 
+```bash
+git clone https://github.com/JayKishoreDuvvuri/Puppeteer-Jest-Docker-Automation-Framework
+```
 
-## Run
-Start tests:
+Install dependencies
 
-`npm run test`
+```bash
+Install Node modules with command : npm i
+```
 
-or 
+Run test
 
-`node example.test.js`
+```bash
+Test Execution Sequentially (OR) Parallel
+npm run test (OR) npm test                   #For Parallel execution
+npm test addToCart.test.js                   #For running individual test
+```
 
-Start tests in watch mode:
+Folder Structure
 
-`npm run test-watch`
+    ├── ...
+    │
+    ├── pages                               # Generic functionality for tests
+    │   |
+    │   ├── BasePage.js                     # Base page testing functionality
+    │   ├── LandingPage.js                  # Landing page testing functionality
+    │   ├── AddToCartPage.js                # Add To Cart page testing functionality
+    │   ├── ProductPage.js                  # Product page testing functionality
+    │
+    ├── test                                # Test suite
+    │    ├── addToCart.test.js              # Automated Test Script
+    │    ├── checkTotalPrice.test.js        # Automated Test Script
+    │    ├── productNames.test.js           # Automated Test Script
+    │    ├── toggleProductColour.test.js    # Automated Test Script
+    │
+    │
+    │── config.js                           # Confiuguration JavSacript File
+    │
+    │
+    ├── utils                               # Utility files for testing
+    │    ├──locators.js                     # HTML and CSS identifier for elements to test
+    │
+    │
+    ├──  allure-results                     # allure generate {Directory} [on terminal]
+    │
+    └─── allure-report                      # allure open                 [on terminal]
 
+Generate Allure Test Report
 
-### Settings
+```bash
+Run on Terminal :
+        |
+        ├── allure generate --clean (OR) allure generate --clean --output allure-report  
+        │
+        ├── allure open
+```
 
-Running tests in `headless` mode:
+### Docker Locally
+```bash
+docker build -t puppeteer:v1 .
+docker run -it puppeteer:v1      
+```
 
-Set `headless: true` in [`jest-puppeteer.config.js`](./jest-puppeteer.config.js) file.
-
-## Issues 
-
-If you find issues remove the package-lock.json  file and then run 
-`npm i`
-
-Refer 
-https://github.com/dzmitry-duboyski/Automation-Framework-using-Jest-and-Puppeteer?tab=readme-ov-file
+### From Docker Hub
+```bash
+docker pull jaykishoreduvvuri/puppeteer:v1   
+docker run -it jaykishoreduvvuri/puppeteer:v1      
+```

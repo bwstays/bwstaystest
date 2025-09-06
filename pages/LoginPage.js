@@ -1,10 +1,10 @@
 import BasePage from "./BasePage";
-import { baseURL } from './constants/constants.js'
+import { baseUrl, timeout } from "../config";
 
 export default class LoginPage extends BasePage {
 
   async visit() {
-    await page.goto(`${baseURL}login.html`)
+    await page.goto(`${baseUrl}index.html`)
   }
 
   async isLoginFormDisplayed() {
@@ -14,21 +14,5 @@ export default class LoginPage extends BasePage {
     await page.waitForSelector("#form-actions-submit")
   }
 
-  /**
-   * User authorization on the site.
-   * 
-   * @param {string} login User to login to the site.
-   * @param {string} password Password
-   * 
-   * @example
-   * ```js
-   * await loginPage.login("username","password")
-   * ```
-   */
-  async login(login, password) {
-    await page.waitForSelector("#login_form")
-    await page.type("#user_login", login)
-    await page.type("#user_password", password)
-    await page.click("#form-actions-submit")
-  }
+
 }

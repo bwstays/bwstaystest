@@ -1,36 +1,45 @@
 import HomePage from "../../pages/HomePage"
-import TopBar from "../../pages/components/TopBar"
-import LoginPage from "../../pages/LoginPage"
-import FeedbackPage from "../../pages/FeedBackPage"
+import { baseUrl,jestTimeout, timeout } from '../../config';
+import { discover,contact} from '../../utils/locators';
+
+
 import {defaultTimeout, userLogin, userPass} from "../../pages/constants/constants"
 
+
+
 describe("End-To-End Test", () => {
-  const homePage = new HomePage()
-  const topBar = new TopBar()
-  const loginPage = new LoginPage()
-  const feedbackPage = new FeedbackPage()
+ // const homePage = new HomePage(baseUrl, timeout);
 
-  it("Should load homepage", async () => {
-    await homePage.visit()
-    await homePage.isNavbarDisplayed()
-  }, defaultTimeout)
 
-  it("Should submit feedback", async () => {
-    await homePage.clickFeedbackLink()
-    await feedbackPage.isFeedbackFormDisplayed()
-    await feedbackPage.submitFeedback(
-      "Jon",
-      "jon.dilly@mail.com",
-      "subject",
-      "Lorem ipsum"
-    )
-  }, defaultTimeout)
 
-  it("Should login to application", async () => {
-    await homePage.visit()
-    await topBar.isTopBarDisplayed()
-    await topBar.clickSignInButton()
-    await loginPage.isLoginFormDisplayed()
-    await loginPage.login(userLogin,userPass)
-  }, defaultTimeout)
-})
+ beforeAll(async () => {
+        jest.setTimeout(jestTimeout);
+        await HomePage.open();
+     });
+
+
+
+
+   it('Wayanad Rental Villas|Kerala Hill Station Experience|Stays', async () => {
+        await HomePage.getTitle();
+    });
+
+
+    it("Get URL", async () => {
+        await HomePage.getUrl();
+     });
+
+    it("Contact", async () => {
+        const [response] = await Promise.all([page.waitForNavigation({ waitUntil: 'networkidle0', timeout: 13000 }),
+ 		            HomePage.waitAndClick(contact)
+        ]);
+      });
+
+    it("Discover", async () => {
+        const [response] = await Promise.all([page.waitForNavigation({ waitUntil: 'networkidle0', timeout: 13000 }),
+ 		            HomePage.waitAndClick(discover)
+        ]);
+      });
+
+
+});
