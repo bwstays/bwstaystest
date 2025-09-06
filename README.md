@@ -13,6 +13,7 @@ Start checks:
 `npm install --save-dev jest`
 
 
+
 ## Run
 Start tests:
 
@@ -32,6 +33,11 @@ Start tests in watch mode:
 Running tests in `headless` mode:
 
 Set `headless: true` in [`jest-puppeteer.config.js`](./jest-puppeteer.config.js) file.
+
+## Issues 
+
+If you find issues remove the package-lock.json  file and then run 
+`npm i`
 
 Refer 
 https://github.com/dzmitry-duboyski/Automation-Framework-using-Jest-and-Puppeteer?tab=readme-ov-file
