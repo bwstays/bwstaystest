@@ -30,13 +30,13 @@ describe("End-To-End Test", () => {
      });
 
     it("Contact", async () => {
-        const [response] = await Promise.all([page.waitForNavigation({ waitUntil: 'networkidle0', timeout: 13000 }),
+        const [response] = await Promise.all([page.waitForNavigation({ waitUntil: 'networkidle0', timeout:7000 }),
  		            HomePage.waitAndClick(contact)
         ]);
       });
 
     it("Discover", async () => {
-        const [response] = await Promise.all([page.waitForNavigation({ waitUntil: 'networkidle0', timeout: 13000 }),
+        const [response] = await Promise.all([page.waitForNavigation({ waitUntil: 'networkidle0', timeout: 7000 }),
  		            HomePage.waitAndClick(discover)
         ]);
       });
