@@ -22,7 +22,7 @@
 
 
   Changes:
-  - add methods `clickHomepageLink()`, `clickOnlineBankingMenuLink()`, `clickFeedbackLink()` in file `./pages/HomePage.js` 
+  - add methods  `clickContactLink()` in file `./pages/HomePage.js` 
   - update `HomePage.js`
 
   Create files:
@@ -51,7 +51,6 @@
 
   Add variables
 
-[Source code](https://att-c.udemycdn.com/2020-09-10_14-10-57-5006c1de82c84f1c59028e0daeb7ab00/original.zip?response-content-disposition=attachment%3B+filename%3Djest-pptr-project.zip&Expires=1679267049&Signature=WEUsc2qBL~M4dhQJUorHhB-CrUHObwWFVVCKEM1sRyqDjW0W8KLhNQo3GA7m9MjB8G~T-4bfFz4LNXD92rdGQsUf7yQpOGZz0P6d3FzYUfPA0juR7VP53aqMREN8ng~5LdepaaQCst5wVMyxZIyaCb838WqAt3-pckbyEWAMHzofkFvPML1aBVTG1qCYPcvpAmY9-yBvXhJyPjvrUMSj5Toz6tTGtqE6fKRnRZBS~H6MM3jvLxgDXo9MbL40KN0oxH~9YT2Q~b8FBI2oit-ntLexBEYkLW0EwsgDaxZfVRgGBaKzHElp8I5vZZmVw2pfxtAmUr41niSj~V08qB9v2g__&Key-Pair-Id=APKAITJV77WS5ZT7262A) for this section #5 from the course ["Automated Software Testing with Puppeteer"](https://www.udemy.com/course/automated-headless-browser-testing-with-puppeteer/).
-
+ 
 
  
