@@ -1,7 +1,7 @@
 import BasePage from "./BasePage"
 import { baseUrl, timeout } from "../config";
 
-import {  discover, contact} from '../utils/locators';
+import {  discover, contact } from '../utils/locators';
 
 
  class HomePage extends BasePage{

@@ -2,6 +2,8 @@ module.exports = {
 	launch: {
 		headless: false,
 		sloMo: 10,
+		// headless: true,
+		// sloMo: 0,
 		devtools: false,
 		defaultViewport: null,
 		args: ['--no-sandbox', '--disable-setuid-sandbox']

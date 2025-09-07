@@ -5,17 +5,17 @@ import { discover,contact} from '../../utils/locators';
 
 import {defaultTimeout, userLogin, userPass} from "../../pages/constants/constants"
 
+// Ensure longer timeout is applied to hooks and tests in this file
+jest.setTimeout(jestTimeout);
 
 
 describe("End-To-End Test", () => {
  // const homePage = new HomePage(baseUrl, timeout);
 
 
-
  beforeAll(async () => {
-        jest.setTimeout(jestTimeout);
         await HomePage.open();
-     });
+     }, jestTimeout);
 
 
 
@@ -30,15 +30,13 @@ describe("End-To-End Test", () => {
      });
 
     it("Contact", async () => {
-        const [response] = await Promise.all([page.waitForNavigation({ waitUntil: 'networkidle0', timeout:7000 }),
- 		            HomePage.waitAndClick(contact)
-        ]);
+        await HomePage.clickContact();
+        await page.waitForSelector('#signup', { visible: true, timeout });
       });
 
     it("Discover", async () => {
-        const [response] = await Promise.all([page.waitForNavigation({ waitUntil: 'networkidle0', timeout: 7000 }),
- 		            HomePage.waitAndClick(discover)
-        ]);
+        await HomePage.clickDiscover();
+        await page.waitForSelector('#discovered', { visible: true, timeout });
       });
 
 

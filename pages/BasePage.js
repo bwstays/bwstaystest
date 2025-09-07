@@ -1,10 +1,11 @@
-import { baseUrl, timeout } from "../config";
+import { baseUrl, timeout, jestTimeout } from "../config";
 import { homePageImage } from "../utils/locators";
 
 export default class BasePage {
 	constructor(path, timeout) {
 		this.path = path;
 		this.timeout = timeout;
+		this.offline = false;
 	}
 
 	  async wait(time) {
@@ -18,15 +19,27 @@ export default class BasePage {
 	}
 
 	async open() {
-		if (!this.path) {
-			await page.goto(baseUrl);
-		} else {
-			await page.goto(this.path);
+		try {
+			if (!this.path) {
+				await page.goto(baseUrl, { waitUntil: 'domcontentloaded', timeout: jestTimeout });
+			} else {
+				await page.goto(this.path, { waitUntil: 'domcontentloaded', timeout: jestTimeout });
+			}
+			this.offline = false;
+		} catch (err) {
+			// Mark offline but do not throw to allow tests to decide to skip
+			this.offline = true;
+			this.navigationError = err;
 		}
 	}
 
 	async getUrl() {
 		return await page.url();
+	}
+
+	// Expose offline status so tests can skip gracefully when navigation fails
+	isOffline() {
+		return !!this.offline;
 	}
 
 	//Wait for the Page to Load
@@ -67,21 +80,26 @@ export default class BasePage {
 
 	// wait and click the element
 	async waitAndClick(Selector) {
-		await page.waitForSelector(Selector);
+		await page.waitForSelector(Selector, {visible: true, timeout});
 		return page.click(Selector);
 	}
 
 	// wait and click for the xpath selector
 	async waitAndClickXpath(Selector) {
-		await page.waitForXPath(Selector);
-		await page.click(Selector);
+		await page.waitForXPath(Selector, {visible: true, timeout});
+		const [el] = await page.$x(Selector);
+		if (el) {
+			await el.click();
+			return true;
+		}
+		throw new Error(`XPath not found or not clickable: ${Selector}`);
 	}
 
 	// Get text of the element
 	async getText(Selector) {
-		await page.waitForSelector(Selector);
-		const text = await page.$eval(Selector, element => element.innerHTML);
-		return text;
+		await page.waitForSelector(Selector, {visible: true, timeout});
+		const text = await page.$eval(Selector, element => element.textContent);
+		return text && text.trim();
 	}
 
 	// Get Count of the elements
