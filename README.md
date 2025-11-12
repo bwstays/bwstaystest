@@ -21,7 +21,7 @@ Run test
 ```bash
 Test Execution Sequentially (OR) Parallel
 npm run test (OR) npm test                   #For Parallel execution
-npm test addToCart.test.js                   #For running individual test
+npm test tests\E2E\example.test.js                         #For running individual test
 ```
 
 Folder Structure
@@ -33,8 +33,8 @@ Folder Structure
     │   ├── BasePage.js                     # Base page testing functionality
     │   ├── HomePage.js                  # Landing page testing functionality
     │
-    ├── test                                # Test suite
-    │    ├── example.test.js              # Automated Test Script
+    ├── tests                                # Test suite
+    │    ├── E2E\example.test.js              # Automated Test Script
     │
     │── config.js                           # Confiuguration JavSacript File
     │
